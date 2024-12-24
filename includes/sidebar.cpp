@@ -10,7 +10,7 @@ Sidebar::Sidebar(float left, float width) : _left(left), _width(width)
     items.reserve(50);
 
     // set up the sidebar rectangle:
-    rect.setFillColor(sf::Color(105, 105, 105)); //(192,192,192)); //silver
+    rect.setFillColor(sf::Color(255, 209, 223)); // light pink!!!!
     rect.setPosition(sf::Vector2f(left, 0));
     rect.setSize(sf::Vector2f(width, SCREEN_HEIGHT));
     cout << "Sidebar CTOR: about to load font." << endl;
@@ -44,7 +44,7 @@ Sidebar::Sidebar(float left, float width) : _left(left), _width(width)
     sb_text.setFont(font);
     sb_text.setCharacterSize(20);
     sb_text.setStyle(sf::Text::Bold);
-    sb_text.setFillColor(sf::Color::Yellow);
+    sb_text.setFillColor(sf::Color(170, 51, 106));  // dark pink!!!
 
     ////this is how you would position text on screen:
     // sb_text.setPosition(sf::Vector2f(10, SCREEN_HEIGHT-sb_text.getLocalBounds().height-5));

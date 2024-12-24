@@ -21,6 +21,8 @@ private:
     bool mouseIn;                       //mouse is in the screen
     Sidebar sidebar;                    //rectangular message sidebar
 
+    sf::Vector2f mousePos;
+
 };
 
 string mouse_pos_string(sf::RenderWindow& window);

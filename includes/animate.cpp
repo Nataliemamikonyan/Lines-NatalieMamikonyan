@@ -8,7 +8,7 @@ animate::animate() : sidebar(WORK_PANEL, SIDE_BAR)
 
 {
     cout << "animate CTOR: TOP" << endl;
-    window.create(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "SFML window!");
+    window.create(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Lines!");
     // VideoMode class has functions to detect screen size etc.
     // RenderWindow constructor has a third argumnet to set style
     // of the window: resize, fullscreen etc.
@@ -43,11 +43,11 @@ animate::animate() : sidebar(WORK_PANEL, SIDE_BAR)
         exit(-1);
     }
 
-    myTextLabel = sf::Text("Initial String for myTextLabel", font);
-    myTextLabel.setCharacterSize(20);
-    myTextLabel.setStyle(sf::Text::Bold);
-    myTextLabel.setFillColor(sf::Color::Green);
-    myTextLabel.setPosition(sf::Vector2f(10, SCREEN_HEIGHT - myTextLabel.getLocalBounds().height - 5));
+    // myTextLabel = sf::Text("Initial String for myTextLabel", font);
+    // myTextLabel.setCharacterSize(20);
+    // myTextLabel.setStyle(sf::Text::Bold);
+    // myTextLabel.setFillColor(sf::Color::Green);
+    // myTextLabel.setPosition(sf::Vector2f(10, SCREEN_HEIGHT - myTextLabel.getLocalBounds().height - 5));
     cout << "animate instantiated successfully." << endl;
 }
 
@@ -69,14 +69,14 @@ void animate::Draw()
 
     // drawing Test: . . . . . . . . . . . .
     // This is how you draw text:)
-    window.draw(myTextLabel);
+    // window.draw(myTextLabel);
     //. . . . . . . . . . . . . . . . . . .
 }
 
 void animate::update()
 {
     // cause changes to the data for the next frame
-    system.Step(command);
+    system.Step(command, mousePos);
     command = 0;
     if (mouseIn)
     {
@@ -149,6 +149,9 @@ void animate::processEvents()
             }
             else
             {
+                command = LEFT_CLICK;
+                mousePos = sf::Vector2f(sf::Mouse::getPosition(window));
+
                 sidebar[SB_MOUSE_CLICKED] = "LEFT CLICK " +
                                             mouse_pos_string(window);
             }
